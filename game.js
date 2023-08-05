@@ -8,7 +8,7 @@ const gridSizeY = canvas.height / gridSize
 // Snake data
 let snake = [{ x: 10, y: 10 }]
 let food = { x: 15, y: 10 }
-let dx = 1 // Initial velocity (right)
+let dx = 0 // Initial velocity (right)
 let dy = 0
 let changingDirection = false
 
