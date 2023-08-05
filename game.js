@@ -146,13 +146,13 @@ function gameOver() {
   const head = snake[0]
   for (let i = 1; i < snake.length; i++) {
     if (snake[i].x === head.x && snake[i].y === head.y) {
-      alert('Game Over! Your score: ' + (snake.length - 1))
+      // alert('Game Over! Your score: ' + (snake.length - 1))
       return true
     }
   }
 
   if (head.x < 0 || head.x >= gridSizeX || head.y < 0 || head.y >= gridSizeY) {
-    alert('Game Over! Your score: ' + (snake.length - 1))
+    // alert('Game Over! Your score: ' + (snake.length - 1))
     return true
   }
 
