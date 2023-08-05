@@ -43,6 +43,18 @@ function changeDirection(event) {
   }
 }
 
+function showGameOverMessage(score) {
+  const gameOverMessage = document.getElementById('gameOverMessage')
+  gameOverMessage.textContent = `Game Over! Your score: ${score}`
+  gameOverMessage.style.display = 'block'
+}
+let foodcount = 0
+
+function updateFoodCounter(count) {
+  const foodCountElement = document.getElementById('foodCounter')
+  foodCountElement.textContent = count
+}
+
 // Main game loop
 let gameLoop // Store the interval ID to control the game loop
 
@@ -62,6 +74,8 @@ function main() {
   }, 100)
 }
 
+updateFoodCounter(foodcount)
+
 function startGame() {
   console.log('Game started!')
   main()
@@ -69,6 +83,7 @@ function startGame() {
 
 function stopGame() {
   console.log('Game stopped!')
+  showGameOverMessage(snake.length - 1)
   clearTimeout(gameLoop)
 }
 
@@ -103,6 +118,8 @@ function moveSnake() {
   if (head.x === food.x && head.y === food.y) {
     // Snake eats the food
     generateFood()
+    foodcount++
+    updateFoodCounter(foodcount)
   } else {
     // Snake moves, remove the tail segment
     snake.pop()
