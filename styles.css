@@ -1,16 +1,12 @@
 /* style.css */
 
-/* Set the canvas size */
+/* Set the canvas size and center it */
 #gameCanvas {
   border: 1px solid #000000;
   display: block;
- fill: #000000;
-}
-
-/* Center the canvas */
-#canvasContainer {
   margin: 0 auto;
-  text-align: center;
+  background-color: #222222; /* Replace this with your desired darker color */
+  padding: 10px; /* Add padding to create separation between canvas and container */
 }
 
 /* Style the snake */
