@@ -13,7 +13,6 @@ let dy = 0
 let changingDirection = false
 
 // Handle keyboard input
-// Handle keyboard input
 document.addEventListener('keydown', changeDirection)
 
 function changeDirection(event) {
@@ -45,12 +44,15 @@ function changeDirection(event) {
 }
 
 // Main game loop
+let gameLoop // Store the interval ID to control the game loop
+
 function main() {
   if (gameOver()) {
+    stopGame()
     return
   }
 
-  setTimeout(function () {
+  gameLoop = setTimeout(function () {
     changingDirection = false
     clearCanvas()
     drawFood()
@@ -59,6 +61,19 @@ function main() {
     main()
   }, 100)
 }
+
+function startGame() {
+  console.log('Game started!')
+  main()
+}
+
+function stopGame() {
+  console.log('Game stopped!')
+  clearTimeout(gameLoop)
+}
+
+document.getElementById('startButton').addEventListener('click', startGame)
+document.getElementById('stopButton').addEventListener('click', stopGame)
 
 function drawSnakePart(snakePart) {
   ctx.fillStyle = 'green'
@@ -128,4 +143,4 @@ function gameOver() {
 }
 
 generateFood() // Initialize food position
-main() // Start the game loop
+console.log('Snake The Game')
